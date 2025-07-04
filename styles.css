@@ -1,3 +1,6 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 /* General Reset */
 * {
   margin: 0;
@@ -6,26 +9,28 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background: url('https://i.pinimg.com/736x/d5/27/67/d527671759d228640d753625f6e3ddc5.jpg') no-repeat center center fixed; /* Add your background image here */
-  background-size: cover; /* Ensures the image covers the entire screen */
-  background-position: center; /* Centers the image */
+  font-family: 'Roboto', sans-serif;
+  background: url('https://i.pinimg.com/736x/d5/27/67/d527671759d228640d753625f6e3ddc5.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-position: center;
   color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   overflow: hidden;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.5); /* Reduced opacity for transparency */
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   width: 90%;
   max-width: 500px;
-  padding: 20px;
+  padding: 25px;
   animation: fadeIn 1s ease-in-out;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
 @keyframes fadeIn {
@@ -35,7 +40,7 @@ body {
 
 .header {
   text-align: right;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .time-tasks span {
@@ -45,7 +50,7 @@ body {
 }
 
 .todo-container {
-  background: rgba(255, 255, 255, 0.3); /* Reduced opacity for transparency */
+  background: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
   padding: 20px;
 }
@@ -53,8 +58,8 @@ body {
 .todo-container h1 {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 24px;
-  color: #444;
+  font-size: 26px;
+  color: #333;
 }
 
 .input-container {
@@ -66,11 +71,11 @@ body {
 #todo-input {
   width: 80%;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   font-size: 16px;
-  outline: none;
-  background: rgba(255, 255, 255, 0.7); /* Slightly transparent input field */
+  background: rgba(255, 255, 255, 0.8);
+  transition: background 0.3s ease, border 0.3s ease;
 }
 
 #add-todo {
@@ -78,13 +83,15 @@ body {
   border: none;
   background: #28a745;
   color: white;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
 #add-todo:hover {
   background: #218838;
+  transform: scale(1.05);
 }
 
 #todo-list {
@@ -95,10 +102,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid rgba(221, 221, 221, 0.5); /* Slightly transparent border */
+  padding: 12px;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  margin-bottom: 8px;
   animation: slideIn 0.5s ease-in-out;
-  background: rgba(255, 255, 255, 0.5); /* Slightly transparent list items */
 }
 
 @keyframes slideIn {
@@ -106,18 +115,73 @@ body {
   to { opacity: 1; transform: translateX(0); }
 }
 
-#todo-list li:last-child {
-  border-bottom: none;
-}
-
 #todo-list li i {
   cursor: pointer;
-  color: #dc3545;
-  transition: color 0.3s ease;
+  color: #e74c3c;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 #todo-list li i:hover {
-  color: #c82333;
+  color: #c0392b;
+  transform: scale(1.2);
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #999;
+  opacity: 0.6;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode .container {
+  background: rgba(30, 30, 30, 0.95);
+}
+
+body.dark-mode .todo-container {
+  background: rgba(50, 50, 50, 0.8);
+}
+
+body.dark-mode h1 {
+  color: #ffffff;
+}
+
+body.dark-mode #todo-input {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid #777;
+}
+
+body.dark-mode #add-todo {
+  background: #00c853;
+}
+
+body.dark-mode #add-todo:hover {
+  background: #00b248;
+}
+
+body.dark-mode #todo-list li {
+  background: rgba(80, 80, 80, 0.7);
+  border-bottom: 1px solid rgba(200, 200, 200, 0.1);
+  color: #ffffff;
+}
+
+body.dark-mode #todo-list li i {
+  color: #ff5252;
+}
+
+body.dark-mode #todo-list li i:hover {
+  color: #ff1744;
+}
+
+body.dark-mode .completed {
+  text-decoration: line-through;
+  color: #bbbbbb;
+  opacity: 0.6;
 }
 
 /* Responsive Design */
